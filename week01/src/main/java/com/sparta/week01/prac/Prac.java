@@ -265,10 +265,15 @@ public class Prac {
         String tutor = "남병관";
         int days = 35;
         Course course = new Course(title, tutor, days);
-        System.out.println(course.title);
-        System.out.println(course.tutor);
-        System.out.println(course.days);
+        course.setTitle("프론트엔드의 꽃, React");
+        course.setTutor("임민영");
+        course.setDays(40);
+
+        System.out.println(course.getTitle());
+        System.out.println(course.getTutor());
+        System.out.println(course.getDays());
         System.out.println("==================");
+
 
     }
 }
