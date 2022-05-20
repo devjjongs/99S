@@ -72,7 +72,7 @@ public class Prac {
 
     public static void main(String[] args) {
 
-        // 숫자
+        /*// 숫자
         System.out.println("===== 숫자형 =====");
         int a = 7;
         int b = 3;
@@ -248,7 +248,6 @@ public class Prac {
         } else {
             System.out.println("미성년자입니다.");
         }
-        System.out.println("------------------");
         System.out.println("==================");
 
         // 조건문 연습퀴즈
@@ -257,10 +256,19 @@ public class Prac {
         Scanner sc = new Scanner(System.in);
         System.out.print("과일 입력 : ");
         String s = sc.next();
-        System.out.println(s + "의 개수 : " + countFruit("감") + "개");
+        System.out.println(s + "의 개수 : " + countFruit(s) + "개");
+        System.out.println("==================");*/
+
+        // 클래스
+        System.out.println("===== 클래스 =====");
+        String title = "웹개발의 봄, Spring";
+        String tutor = "남병관";
+        int days = 35;
+        Course course = new Course(title, tutor, days);
+        System.out.println(course.title);
+        System.out.println(course.tutor);
+        System.out.println(course.days);
         System.out.println("==================");
 
-//        System.out.println("===== 문자열 =====");
-//        System.out.println("==================");
     }
 }
