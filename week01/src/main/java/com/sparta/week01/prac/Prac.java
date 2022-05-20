@@ -2,6 +2,7 @@ package com.sparta.week01.prac;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Prac {
 
@@ -41,6 +42,32 @@ public class Prac {
     // 메소드 연습퀴즈
     public static int methodQuiz(int i, int j) {
         return i - j;
+    }
+
+    // 조건 - 반복문 연습퀴즈
+    public static int countFruit(String fruit) {
+        List<String> fruits = new ArrayList<>();
+        fruits.add("감");
+        fruits.add("배");
+        fruits.add("감");
+        fruits.add("딸기");
+        fruits.add("수박");
+        fruits.add("메론");
+        fruits.add("수박");
+        fruits.add("딸기");
+        fruits.add("메론");
+        fruits.add("수박");
+        fruits.add("메론");
+        fruits.add("수박");
+        fruits.add("감");
+
+        int count = 0;
+        for (int i = 0; i < fruits.size(); i++) {
+            if (fruit == fruits.get(i)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public static void main(String[] args) {
@@ -149,7 +176,91 @@ public class Prac {
         System.out.println("두 정수의 차: " + qRet);
         System.out.println("==================");
 
-    }
-}
+        // 반복문
+        System.out.println("===== 반복문 =====");
+        List<String> fruits = new ArrayList<>();
+        System.out.println("과일 배열");
+        fruits.add("감");
+        fruits.add("배");
+        fruits.add("감");
+        fruits.add("딸기");
+        fruits.add("수박");
+        fruits.add("메론");
+        fruits.add("수박");
+        fruits.add("딸기");
+        fruits.add("메론");
+        fruits.add("수박");
+        fruits.add("메론");
+        fruits.add("수박");
+        fruits.add("감");
+        System.out.println(fruits);
+        System.out.println("------------------");
+        System.out.println("반복문 없이");
+        System.out.println(fruits.get(0));
+        System.out.println(fruits.get(1));
+        System.out.println(fruits.get(2));
+        System.out.println(fruits.get(3));
+        System.out.println(fruits.get(4));
+        System.out.println(fruits.get(5));
+        System.out.println(fruits.get(6));
+        System.out.println(fruits.get(7));
+        System.out.println(fruits.get(8));
+        System.out.println(fruits.get(9));
+        System.out.println(fruits.get(10));
+        System.out.println(fruits.get(11));
+        System.out.println(fruits.get(12));
+        System.out.println("------------------");
+        System.out.println("반복문(for) 사용");
+        for (int i = 0; i < fruits.size(); i++) {
+//            String fruit = fruits.get(i);
+            System.out.println(fruits.get(i));
+            // 두 방법 모두 사용 가능
+        }
+        System.out.println("==================");
+
+        // 반복문 연습퀴즈
+        System.out.println("==== 연습퀴즈 ====");
+        System.out.println("❓ 주어진 연예인 목록을 차례대로 하나씩 인쇄하는 반복문을 작성해보세요.");
+        List<String> celebs = new ArrayList<>();
+        celebs.add("아이유");
+        celebs.add("린다G");
+        celebs.add("은비");
+        celebs.add("금비");
+        celebs.add("비");
+        celebs.add("차은우");
+        celebs.add("남주혁");
+        celebs.add("수지");
+        celebs.add("정우성");
+        celebs.add("제니");
+        celebs.add("정국");
+
+        for (int i = 0; i < celebs.size(); i++) {
+            System.out.println(celebs.get(i));
+        }
+        System.out.println("==================");
+
+        // 조건문
+        System.out.println("===== 조건문 =====");
+        System.out.println("조건문 예제 1)");
+        int age = 20;
+        if (age > 19) {
+            System.out.println("성인입니다.");
+        } else {
+            System.out.println("미성년자입니다.");
+        }
+        System.out.println("------------------");
+        System.out.println("==================");
+
+        // 조건문 연습퀴즈
+        System.out.println("==== 연습퀴즈 ====");
+        System.out.println("조건/반복문 연습");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("과일 입력 : ");
+        String s = sc.next();
+        System.out.println(s + "의 개수 : " + countFruit("감") + "개");
+        System.out.println("==================");
+
 //        System.out.println("===== 문자열 =====");
 //        System.out.println("==================");
+    }
+}
