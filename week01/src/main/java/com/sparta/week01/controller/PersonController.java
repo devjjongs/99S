@@ -1,19 +1,40 @@
 package com.sparta.week01.controller;
 
 import com.sparta.week01.prac.Person;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.sparta.week01.prac.PersonRepository;
+import com.sparta.week01.prac.PersonRequestDto;
+import com.sparta.week01.service.PersonService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@RequiredArgsConstructor
 @RestController
 public class PersonController {
-    @GetMapping("/myinfo")
-    public Person getPerson() {
-        Person person = new Person();
-        person.setName("홍길동");
-        person.setAge(20);
-        person.setAddress("서울특별시 영등포구");
-        person.setPetName("하늘");
-        person.setPetAge(7);
-        return person;
+
+    private final PersonService personService;
+    private final PersonRepository personRepository;
+
+    @GetMapping("/api/persons")
+    public List<Person> getPersons() {
+        return personRepository.findAll();
+    }
+
+    @PostMapping("/api/persons")
+    public Person createPerson(@RequestBody PersonRequestDto requestDto) {
+        Person person = new Person(requestDto);
+        return personRepository.save(person);
+    }
+
+    @PutMapping("/api/persons/{id}")
+    public Long updatePerson(@PathVariable Long id, @RequestBody PersonRequestDto requestDto) {
+        return personService.update(id, requestDto);
+    }
+
+    @DeleteMapping("/api/persons/{id}")
+    public Long deletePerson(@PathVariable Long id) {
+        personRepository.deleteById(id);
+        return id;
     }
 }
