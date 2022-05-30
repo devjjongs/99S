@@ -1,13 +1,14 @@
 package com.sparta.springcore;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor // final로 선언된 멤버 변수를 자동으로 생성합니다.
+//@RequiredArgsConstructor // final로 선언된 멤버 변수를 자동으로 생성합니다.
 @RestController // JSON으로 데이터를 주고받음을 선언합니다.
 public class ProductController {
 
@@ -15,6 +16,7 @@ public class ProductController {
     private final ProductService productService;
 
     // 반복 사용되는 Service 생성자
+    @Autowired // 생성자가 1개이면 생략 가능 하지만 명시적으로 표시 해주기 위해서 사용
     public ProductController(ProductService productService) {
 //        ProductService productService = new ProductService();
 //        this.productService = productService;
