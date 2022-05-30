@@ -1,3 +1,5 @@
+// Spring Data JPA가 대신 작업 수행
+/*
 package com.sparta.springcore;
 
 import org.springframework.context.annotation.Bean;
@@ -15,4 +17,4 @@ public class BeanConfiguration {
         // 새로운 객체에 전달 받은 값을 리턴
         return new ProductRepository(dbUrl, dbId, dbPassword);
     }
-}
+}*/

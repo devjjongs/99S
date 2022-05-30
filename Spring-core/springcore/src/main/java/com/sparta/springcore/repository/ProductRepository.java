@@ -1,9 +1,13 @@
-package com.sparta.springcore;
+package com.sparta.springcore.repository;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import com.sparta.springcore.model.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+// ProductRepository 파일 리팩토링
+public interface ProductRepository extends JpaRepository<Product, Long> {
+}
+
+/*
 public class ProductRepository {
 
     // 멤버 변수 선언
@@ -136,3 +140,4 @@ public class ProductRepository {
         return products;
     }
 }
+*/
