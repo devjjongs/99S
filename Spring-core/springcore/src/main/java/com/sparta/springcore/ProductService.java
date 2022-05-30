@@ -6,12 +6,15 @@ import java.util.List;
 
 public class ProductService {
 
-    // 맴버 변수 선언
+    // 멤버 변수 선언
     private final ProductRepository productRepository;
 
     // 반복 사용되는 Service 생성자
-    public ProductService() {
-        ProductRepository productRepository = new ProductRepository();
+    public ProductService(ProductRepository productRepository) {
+//        ProductRepository productRepository = new ProductRepository();
+//        this.productRepository = productRepository;
+
+        // 느슨한 결합을 위한 의존성 주입(DI)
         this.productRepository = productRepository;
     }
 

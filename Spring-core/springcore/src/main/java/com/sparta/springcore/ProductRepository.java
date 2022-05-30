@@ -5,9 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository {
+
+    // 멤버 변수 선언
+    private final String dbUrl;
+    private final String dbId;
+    private final String dbPassword;
+
+    // 의존성 주입을 위한 생성자 선언
+    public ProductRepository(String dbUrl, String dbId, String dbPassword) {
+        this.dbUrl = dbUrl;
+        this.dbId = dbId;
+        this.dbPassword = dbPassword;
+    }
+
+    // 중복되는 DB 연결 코드
+    private Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(dbUrl, dbId, dbPassword);
+    }
+
     public void createProduct(Product product) throws SQLException {
         // DB 연결
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:springcoredb", "sa", "");
+        Connection connection = getConnection();
 
         // DB Query 작성
         PreparedStatement ps = connection.prepareStatement("select max(id) as id from product");
@@ -39,7 +57,7 @@ public class ProductRepository {
         Product product = new Product();
 
         // DB 연결
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:springcoredb", "sa", "");
+        Connection connection = getConnection();
 
         // DB Query 작성
         PreparedStatement ps = connection.prepareStatement("select * from product where id = ?");
@@ -67,7 +85,7 @@ public class ProductRepository {
 
     public void updateMyprice(Long id, int myprice) throws SQLException {
         // DB 연결
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:springcoredb", "sa", "");
+        Connection connection = getConnection();
 
         // DB Query 작성
         PreparedStatement ps = connection.prepareStatement("select * from product where id = ?");
@@ -92,7 +110,7 @@ public class ProductRepository {
         List<Product> products = new ArrayList<>();
 
         // DB 연결
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:springcoredb", "sa", "");
+        Connection connection = getConnection();
 
         // DB Query 작성 및 실행
         Statement stmt = connection.createStatement();

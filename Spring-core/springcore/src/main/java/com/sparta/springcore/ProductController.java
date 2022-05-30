@@ -11,12 +11,15 @@ import java.util.List;
 @RestController // JSON으로 데이터를 주고받음을 선언합니다.
 public class ProductController {
 
-    // 맴버 변수 선언
+    // 멤버 변수 선언
     private final ProductService productService;
 
     // 반복 사용되는 Service 생성자
-    public ProductController() {
-        ProductService productService = new ProductService();
+    public ProductController(ProductService productService) {
+//        ProductService productService = new ProductService();
+//        this.productService = productService;
+
+        // 느슨한 결합을 위한 의존성 주입(DI)
         this.productService = productService;
     }
 
