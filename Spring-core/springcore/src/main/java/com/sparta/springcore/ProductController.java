@@ -11,12 +11,21 @@ import java.util.List;
 @RestController // JSON으로 데이터를 주고받음을 선언합니다.
 public class ProductController {
 
+    // 맴버 변수 선언
+    private final ProductService productService;
+
+    // 반복 사용되는 Service 생성자
+    public ProductController() {
+        ProductService productService = new ProductService();
+        this.productService = productService;
+    }
+
     // 신규 상품 등록
     @PostMapping("/api/products")
     // @RequestBody에 ProductRequestDto를 받아서 가져옴
     public Product createProduct(@RequestBody ProductRequestDto requestDto) throws SQLException {
         // Service 사용을 위한 선언
-        ProductService productService = new ProductService();
+//        ProductService productService = new ProductService();
 
         // Service의 createProduct() 메소드 호출
         Product product = productService.createProduct(requestDto);
@@ -30,7 +39,7 @@ public class ProductController {
     public Long updateProduct(@PathVariable Long id, @RequestBody ProductMypriceRequestDto requestDto) throws SQLException {
 
         // Service 사용을 위한 선언
-        ProductService productService = new ProductService();
+//        ProductService productService = new ProductService();
 
         // Service의 updateProduct() 메소드 호출
         Product product = productService.updateProduct(id, requestDto);
@@ -44,7 +53,7 @@ public class ProductController {
     public List<Product> getProducts() throws SQLException {
 
         // Service 사용을 위한 선언
-        ProductService productService = new ProductService();
+//        ProductService productService = new ProductService();
 
         // Service의 getProducts() 메소드 호출
         List<Product> products = productService.getProducts();

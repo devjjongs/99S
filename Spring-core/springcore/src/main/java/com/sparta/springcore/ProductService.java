@@ -5,13 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
+
+    // 맴버 변수 선언
+    private final ProductRepository productRepository;
+
+    // 반복 사용되는 Service 생성자
+    public ProductService() {
+        ProductRepository productRepository = new ProductRepository();
+        this.productRepository = productRepository;
+    }
+
     // 관심 상품 등록 메소드
     public Product createProduct(ProductRequestDto requestDto) throws SQLException {
         // 요청받은 DTO 로 DB에 저장할 객체 만들기
         Product product = new Product(requestDto);
 
         // Repository를 사용하기 위해 선언
-        ProductRepository productRepository = new ProductRepository();
+//        ProductRepository productRepository = new ProductRepository();
 
         // Repository의 createProduct() 메소드 호출
         productRepository.createProduct(product);
@@ -22,7 +32,7 @@ public class ProductService {
 
     public Product updateProduct(Long id, ProductMypriceRequestDto requestDto) throws SQLException {
         // Repository를 사용하기 위해 선언
-        ProductRepository productRepository = new ProductRepository();
+//        ProductRepository productRepository = new ProductRepository();
 
         // id 값으로 저장된 상품 가져오기
         Product product = productRepository.getProduct(id);
@@ -42,7 +52,7 @@ public class ProductService {
 
     public List<Product> getProducts() throws SQLException {
         // Repository를 사용하기 위해 선언
-        ProductRepository productRepository = new ProductRepository();
+//        ProductRepository productRepository = new ProductRepository();
 
         // id 값으로 저장된 상품 가져오기
         List<Product> products = productRepository.getProducts();
