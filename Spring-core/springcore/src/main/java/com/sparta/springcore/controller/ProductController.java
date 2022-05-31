@@ -53,4 +53,10 @@ public class ProductController {
 
         return productService.getProducts(userId);
     }
+
+    // 관리자용 상품 목록 조회
+    @GetMapping("/api/admin/products")
+    public List<Product> getProducts() {
+        return productService.getAllProducts();
+    }
 }
