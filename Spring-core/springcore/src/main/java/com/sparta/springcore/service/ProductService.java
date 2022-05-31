@@ -44,6 +44,7 @@ public class ProductService {
         return productRepository.findAllByUserId(userId);
     }
 
+    // 관리자 전체 등록 상품 조회
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }

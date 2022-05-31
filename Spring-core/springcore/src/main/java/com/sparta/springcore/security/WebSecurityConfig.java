@@ -61,6 +61,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     // 로그아웃 처리 URL
                     .logoutUrl("/user/logout")
-                    .permitAll();
+                    .permitAll()
+                .and()
+                    .exceptionHandling()
+                    // "접근 불가" 페이지 URL 설정
+                    .accessDeniedPage("/forbidden.html");
     }
 }
